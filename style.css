@@ -1,0 +1,29 @@
+input {
+  width: 82%;
+}
+
+.find {
+  padding: 40px;
+}
+
+.spanFind {
+  display: block;
+}
+
+.results {
+  width: 40%;
+  /* position: relative; */
+  border: 2px solid;
+  border-radius: 2px;
+}
+
+.statistics {
+  width: 40%;
+  /* position: relative; */
+  border: 2px solid;
+  border-radius: 2px;
+}
+
+section span {
+  display: block;
+}
