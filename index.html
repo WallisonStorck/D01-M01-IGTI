@@ -7,27 +7,37 @@
     <link rel="stylesheet" href="style.css" />
     <title>Desafio Módulo 1</title>
   </head>
+
   <body>
-    <h1>Pesquisa de usuários</h1>
-    <section class="find">
-      <span class="spanFind">Busca</span>
-      <input
-        class="inputFind"
-        type="text"
-        placeholder="Digite um nome ou sobrenome"
-      />
-      <button>Buscar</button>
-    </section>
-    <section class="results">
-      <span>X usuário(s) encontrado(s)</span>
-    </section>
-    <section class="statistics">
-      <span>Estatísticas</span>
-      <span>Sexo masculino: </span>
-      <span>Sexo feminino: </span>
-      <span>Soma das idades: </span>
-      <span>Média das idades: </span>
-    </section>
+    <header>
+      <div class="container">
+        <h1>Pesquisa de usuários</h1>
+        <section>
+          <span class="spanFind">Busca</span>
+          <input
+            class="inputSearch"
+            type="text"
+            placeholder="Digite um nome ou sobrenome"
+          />
+          <button>Buscar</button>
+        </section>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <section class="results">
+          <span class="title">X usuário(s) encontrado(s)</span>
+        </section>
+        <section class="statistics">
+          <span class="title">Estatísticas</span>
+          <span>Sexo masculino: </span>
+          <span>Sexo feminino: </span>
+          <span>Soma das idades: </span>
+          <span>Média das idades: </span>
+        </section>
+      </div>
+    </main>
   </body>
   <script src="script.js"></script>
 </html>
