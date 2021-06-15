@@ -1,3 +1,7 @@
+body {
+  font-family: 'Inters', sans-serif;
+}
+
 input {
   width: 90%;
 }
@@ -33,14 +37,24 @@ main .container {
   justify-content: space-around;
 }
 
-.spanFind {
-  display: block;
-}
-
 .results {
   width: 40%;
   border: 2px solid;
   border-radius: 5px;
+}
+
+ul {
+  list-style: none; /* Retira bolinhas dos itens */
+}
+
+li {
+  display: flex;
+  align-items: center;
+}
+
+img {
+  border-radius: 50%;
+  margin: 0 3% 0 0;
 }
 
 .statistics {
