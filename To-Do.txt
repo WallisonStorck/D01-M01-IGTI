@@ -1,0 +1,3 @@
+Implementações futuras:
+
+( ) Ordenar nomes da pesquisa

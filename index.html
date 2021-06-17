@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/reset.css" />
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
@@ -18,22 +23,20 @@
     <header>
       <div class="container">
         <h1>Pesquisa de usuários</h1>
-        <section>
-          <span class="spanFind">Busca</span>
-          <input
-            class="inputSearch"
-            type="text"
-            placeholder="Digite um nome ou sobrenome"
-          />
-          <button>Buscar</button>
-        </section>
+        <div class="flexRow">
+          <div class="input-field inputLabelSearch">
+            <input id="inputSearch" type="text" class="validate" />
+            <label for="inputSearch">Buscar</label>
+          </div>
+          <button class="waves-effect waves-light btn">Pesquisar</button>
+        </div>
       </div>
     </header>
 
     <main>
-      <div class="container">
-        <section class="results">
-          <span class="title">0 usuário(s) encontrado(s)</span>
+      <div class="container flexRow flex-align-top">
+        <div class="panel">
+          <h2 class="foundUsers">0 usuário(s) encontrado(s)</h2>
           <ul>
             <!-- <li>
               <img
@@ -42,16 +45,18 @@
               />Aidê Santos, 53 anos
             </li> -->
           </ul>
-        </section>
-        <section class="statistics">
-          <span class="title">Estatísticas</span>
-          <span class="males">Sexo masculino: </span>
-          <span class="females">Sexo feminino: </span>
-          <span class="sumAges">Soma das idades: </span>
-          <span class="avgAges">Média das idades: </span>
-        </section>
+        </div>
+        <div class="panel">
+          <h2>Estatísticas</h2>
+          <h6 id="males">Sexo masculino:</h6>
+          <h6 id="females">Sexo feminino:</h6>
+          <h6 id="sumAges">Soma das idades:</h6>
+          <h6 id="avgAges">Média das idades:</h6>
+        </div>
       </div>
     </main>
   </body>
-  <script src="script.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="./js/script.js"></script>
 </html>

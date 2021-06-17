@@ -2,55 +2,45 @@ body {
   font-family: 'Inters', sans-serif;
 }
 
-h1 {
-  margin: 3rem 0;
-  font-weight: bold;
-  font-size: 1.7rem;
-}
-
-.spanFind {
-  display: block;
-}
-
-input {
-  width: 90%;
-}
-
-button {
-  width: 8%;
-}
-
-.title {
-  font-weight: bold;
-  font-size: 1.5rem;
-  margin: 0.5rem 0 0 0.5rem;
-}
-
-header {
-  display: flex;
-  justify-content: space-around;
-}
-
 header .container {
-  padding: 40px;
+  /* padding: 40px; */
   width: 80%;
 }
 
-main {
-  display: flex;
-  justify-content: space-around;
+h1 {
+  text-align: center;
 }
+
+.flexRow {
+  display: flex;
+  align-items: center;
+}
+
+.inputLabelSearch {
+  width: 90%;
+  margin-right: 10px;
+}
+
+/* --------------------------------------------------- */
 
 main .container {
   width: 80%;
-  display: flex;
   justify-content: space-around;
 }
 
-.results {
-  width: 45%;
-  border: 2px solid;
-  border-radius: 5px;
+.panel {
+  width: 50%;
+  padding: 1%;
+  margin-right: 10px;
+  border: 1px solid lightslategray;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+.flex-align-top {
+  align-items: flex-start;
 }
 
 li {
@@ -63,15 +53,4 @@ li {
 img {
   border-radius: 50%;
   margin: 0 3% 0 0;
-}
-
-.statistics {
-  width: 45%;
-  border: 2px solid;
-  border-radius: 5px;
-}
-
-.statistics span {
-  display: block;
-  margin: 0.5rem 0 0 0.5rem;
 }

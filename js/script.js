@@ -2,12 +2,12 @@ window.addEventListener('load', () => {
   console.log('Start!');
   getData();
 
-  let inputSearch = document.querySelector('.inputSearch');
+  let inputSearch = document.querySelector('#inputSearch');
   inputSearch.addEventListener('keyup', search);
 })
 
-let dataAPI = null; //Array que guarda os dados da API.
-let filteredData = null; //Array que vai receber resultados dos filtros
+let dataAPI = null, //Array que guarda os dados da API.
+  filteredData = null; //Array que vai receber resultados dos filtros
 
 async function getData() {
   dataLoad = await fetch('https://randomuser.me/api/?seed=javascript&results=100&nat=BR&noinfo').then(res => {
@@ -34,8 +34,8 @@ function search() {
   };
 
   function statistics(arrayData) {
-    function renderItens(panels, item) {
-      let ul = panels.querySelector('ul');
+    function renderItens(panel, item) {
+      let ul = panel.querySelector('ul');
       ul.innerHTML = '';
 
       for (let i = 0; i < item.length; i++) {
@@ -75,25 +75,25 @@ function search() {
 
     let panels = document.querySelector('main');
 
-    let pCountUsers = panels.querySelector('.title');
+    let pCountUsers = panels.querySelector('.foundUsers');
     pCountUsers.textContent = countUsers + ' usuário(s) encontrado(s)';
 
-    let pCountMales = panels.querySelector('.males');
+    let pCountMales = panels.querySelector('#males');
     pCountMales.textContent = 'Sexo masculino: ' + countMales;
 
-    let pCountFemales = panels.querySelector('.females');
+    let pCountFemales = panels.querySelector('#females');
     pCountFemales.textContent = 'Sexo feminino: ' + countFemales;
 
-    let pSumAges = panels.querySelector('.sumAges');
+    let pSumAges = panels.querySelector('#sumAges');
     pSumAges.textContent = 'Soma das idades: ' + sumAges;
 
-    let pAvgAges = panels.querySelector('.avgAges');
+    let pAvgAges = panels.querySelector('#avgAges');
     pAvgAges.textContent = 'Média das idades: ' + avgAges.toFixed(2);
 
     renderItens(panels, arrayData);
   }
 
-  let inputSearch = document.querySelector('.inputSearch').value.toLowerCase();
+  let inputSearch = document.querySelector('#inputSearch').value.toLowerCase();
   filteredSearch(inputSearch);
   statistics(filteredData);
 }
