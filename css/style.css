@@ -7,6 +7,20 @@ header .container {
   width: 80%;
 }
 
+.searchSwitch {
+  display: flex;
+  justify-content: space-around;
+}
+
+.switch {
+  width: 15%;
+}
+
+.snapshot {
+  display: block;
+  margin: 1% 0;
+}
+
 h1 {
   text-align: center;
 }

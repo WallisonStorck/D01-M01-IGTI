@@ -1,4 +1,5 @@
 Implementações futuras:
 
-( ) Ordenar nomes da pesquisa.
+(✓) Ordenar nomes da pesquisa.
 (✓) Quando a pesquisa estiver vazia mostrar a mensagem inicial "Nenhum usuário filtrado";
+(✓) Adicionado interruptor de pesquisa instantâneo.

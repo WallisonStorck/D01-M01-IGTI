@@ -23,12 +23,25 @@
     <header>
       <div class="container">
         <h1>Pesquisa de usuários</h1>
+        <div class="searchSwitch">
+          <div class="switch">
+            <label class="snapshot">Modo instantâneo</label>
+            <label>
+              Off
+              <input type="checkbox" onchange="enableDisableSwitch()" />
+              <span class="lever"></span>
+              On
+            </label>
+          </div>
+        </div>
         <div class="flexRow">
           <div class="input-field inputLabelSearch">
             <input id="inputSearch" type="text" class="validate" />
             <label for="inputSearch">Buscar</label>
           </div>
-          <button class="waves-effect waves-light btn">Pesquisar</button>
+          <button id="buttonSearch" class="waves-effect waves-light btn">
+            Pesquisar
+          </button>
         </div>
       </div>
     </header>

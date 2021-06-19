@@ -2,26 +2,54 @@ window.addEventListener('load', () => {
   getData(); //Faz a carga dos dados.
 
   let inputSearch = document.querySelector('#inputSearch');
-  inputSearch.addEventListener('keyup', search);
+  inputSearch.addEventListener('keyup', handleTypingKey);
+
+  let buttonSearch = document.querySelector('#buttonSearch');
+  buttonSearch.addEventListener('click', search);
 })
 
 let dataAPI = null, //Array que guarda os dados da API.
-  itemsFound = null; //Array que vai receber resultados dos filtros
+  itemsFound = null, //Array que vai receber resultados dos filtros.
+  switchIsActive = false; //Variável que controla modo instantâneo.
 
 async function getData() {
-  dataLoad = await fetch('https://randomuser.me/api/?seed=javascript&results=100&nat=BR&noinfo').then(res => {
+  let dataLoad = await fetch('https://randomuser.me/api/?seed=javascript&results=100&nat=BR&noinfo').then(res => {
     return res.json();
   });
+  // console.log(dataLoad);
 
-  dataAPI = dataLoad.results.map(data => {
+  dataAPI = dataLoad.results.map(({ login, name, picture, dob, gender }) => {
     return {
-      name: data.name.first + ' ' + data.name.last,
-      picture: data.picture.thumbnail,
-      age: data.dob.age - 1, //Colocando idade com -1 para bater com print da apostila antiga e confirmar teste.
-      gender: data.gender
+      id: login.uuid,
+      name: name.first + ' ' + name.last,
+      picture: picture.thumbnail,
+      age: dob.age - 1, //Colocando idade com -1 para bater com print da apostila antiga e confirmar teste.
+      gender: gender
     }
+  }).sort((a, b) => {
+    return a.name.localeCompare(b.name);
   });
   // console.log(dataAPI);
+}
+
+function enableDisableSwitch() {
+  if (switchIsActive) {
+    switchIsActive = false;
+  } else {
+    switchIsActive = true;
+  }
+}
+
+function handleTypingKey(event) {
+  if (switchIsActive) {
+    search();
+  } else {
+    if (event.key != 'Enter') {
+      return;
+    } else {
+      search();
+    }
+  }
 }
 
 function search() {
