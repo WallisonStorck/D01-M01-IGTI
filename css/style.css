@@ -25,6 +25,19 @@ h1 {
   text-align: center;
 }
 
+.preloader {
+  justify-content: center;
+}
+
+.preloader {
+  margin: 5rem 0;
+}
+
+.wait {
+  margin-left: 10px;
+  font-size: 1.5rem;
+}
+
 .flexRow {
   display: flex;
   align-items: center;
@@ -67,4 +80,8 @@ li {
 img {
   clip-path: circle();
   margin: 0 3% 0 0;
+}
+
+.hidden {
+  display: none;
 }

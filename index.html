@@ -23,31 +23,51 @@
     <header>
       <div class="container">
         <h1>Pesquisa de usuários</h1>
-        <div class="searchSwitch">
-          <div class="switch">
-            <label class="snapshot">Modo instantâneo</label>
-            <label>
-              Off
-              <input type="checkbox" onchange="enableDisableSwitch()" />
-              <span class="lever"></span>
-              On
-            </label>
+
+        <div id="preLoader" class="preloader flexRow">
+          <div class="preloader-wrapper active">
+            <div class="spinner-layer spinner-green-only">
+              <div class="circle-clipper left">
+                <div class="circle"></div>
+              </div>
+              <div class="gap-patch">
+                <div class="circle"></div>
+              </div>
+              <div class="circle-clipper right">
+                <div class="circle"></div>
+              </div>
+            </div>
           </div>
+          <span class="wait">Aguarde...</span>
         </div>
-        <div class="flexRow">
-          <div class="input-field inputLabelSearch">
-            <input id="inputSearch" type="text" class="validate" />
-            <label for="inputSearch">Buscar</label>
+
+        <div id="boxSearch" class="hidden">
+          <div class="searchSwitch">
+            <div class="switch">
+              <label class="snapshot">Modo instantâneo</label>
+              <label>
+                Off
+                <input type="checkbox" onchange="enableDisableSwitch()" />
+                <span class="lever"></span>
+                On
+              </label>
+            </div>
           </div>
-          <button id="buttonSearch" class="waves-effect waves-light btn">
-            Pesquisar
-          </button>
+          <div class="flexRow">
+            <div class="input-field inputLabelSearch">
+              <input id="inputSearch" type="text" class="validate" />
+              <label for="inputSearch">Buscar</label>
+            </div>
+            <button id="buttonSearch" class="waves-effect waves-light btn">
+              Pesquisar
+            </button>
+          </div>
         </div>
       </div>
     </header>
 
     <main>
-      <div class="container flexRow flex-align-top">
+      <div id="panels" class="container flexRow flex-align-top hidden">
         <div class="panel">
           <h2 id="foundUsers">Nenhum usuário filtrado</h2>
           <ul>

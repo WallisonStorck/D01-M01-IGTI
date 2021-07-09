@@ -1,14 +1,19 @@
 window.addEventListener('load', () => {
-  getData(); //Faz a carga dos dados.
 
-  let inputSearch = document.querySelector('#inputSearch');
+  body = document.querySelector('body');
+
+  inputSearch = document.querySelector('#inputSearch');
   inputSearch.addEventListener('keyup', handleTypingKey);
 
   let buttonSearch = document.querySelector('#buttonSearch');
   buttonSearch.addEventListener('click', search);
+
+  getData(); //Faz a carga dos dados.
 })
 
-let dataAPI = null, //Array que guarda os dados da API.
+let body = null, //Variável que vai apontar para toda a pagina.
+  inputSearch = null, //Variável que vai ficar apontada no input.
+  dataAPI = null, //Array que guarda os dados da API.
   itemsFound = null, //Array que vai receber resultados dos filtros.
   switchIsActive = false; //Variável que controla modo instantâneo.
 
@@ -21,7 +26,7 @@ async function getData() {
   dataAPI = dataLoad.results.map(({ login, name, picture, dob, gender }) => {
     return {
       id: login.uuid,
-      name: name.first + ' ' + name.last,
+      name: `${name.first} ${name.last}`,
       picture: picture.thumbnail,
       age: dob.age - 1, //Colocando idade com -1 para bater com print da apostila antiga e confirmar teste.
       gender: gender
@@ -29,7 +34,16 @@ async function getData() {
   }).sort((a, b) => {
     return a.name.localeCompare(b.name);
   });
-  // console.log(dataAPI);
+  showComponents();
+}
+
+function showComponents() {
+  let preload = body.querySelector('#preLoader');
+  let boxSearch = body.querySelector('#boxSearch');
+  let panels = body.querySelector('#panels');
+  preload.classList.add('hidden');
+  boxSearch.classList.remove('hidden');
+  panels.classList.remove('hidden');
 }
 
 function enableDisableSwitch() {
@@ -63,21 +77,17 @@ function search() {
 
   function renderItens(itemsFound) {
     function statistics(arrayData) {
-      for (let i = 0; i < arrayData.length; i++) {
-        countUsers++; //Conta usuários
-        sumAges += arrayData[i].age; //Soma as idades
+      countMales = arrayData.filter((item) => item.gender === 'male').length;
+      countFemales = arrayData.filter((item) => item.gender === 'female').length;
 
-        if (arrayData[i].gender === 'male') { //Conta sexos
-          countMales++;
-        } else {
-          countFemales++;
-        }
+      sumAges = arrayData.reduce((accumulator, current) => {
+        return accumulator + current.age;
+      }, 0);
 
-      }
-      avgAges = sumAges / countUsers; //Média das idades.
+      avgAges = sumAges / arrayData.length;
+
     }
 
-    let countUsers = 0; //Numero de usuários.
     let countMales = 0; //Sexo masculino.
     let countFemales = 0; //Sexo feminino.
     let sumAges = 0; //Soma das idades.
@@ -86,24 +96,24 @@ function search() {
     ul.innerHTML = '';
 
     if (itemsFound != null) {
-      for (let i = 0; i < itemsFound.length; i++) {
+      itemsFound.forEach((item) => {
         ul.innerHTML += `<li>
           <img
-            src="${itemsFound[i].picture}"
+            src="${item.picture}"
             alt="Avatar"
-          />${itemsFound[i].name}, ${itemsFound[i].age} anos
+          />${item.name}, ${item.age} anos
         </li>`
-      }
+      })
       statistics(itemsFound);
     }
 
     let panels = document.querySelector('main');
 
     let pCountUsers = panels.querySelector('#foundUsers');
-    if (countUsers === 0) {
+    if (itemsFound === null) {
       pCountUsers.textContent = 'Nenhum usuário filtrado';
     } else {
-      pCountUsers.textContent = countUsers + ' usuário(s) encontrado(s)';
+      pCountUsers.textContent = itemsFound.length + ' usuário(s) encontrado(s)';
     }
 
     let pCountMales = panels.querySelector('#males');
@@ -116,17 +126,17 @@ function search() {
     pSumAges.textContent = 'Soma das idades: ' + sumAges;
 
     let pAvgAges = panels.querySelector('#avgAges');
-    pAvgAges.textContent = 'Média das idades: ' + avgAges.toFixed(2);
+    pAvgAges.textContent = 'Média das idades: ' + avgAges.toFixed(2).replace('.', ',');
   }
 
-  //Obtém o texto a ser pesquisado do input
-  let inputSearch = document.querySelector('#inputSearch').value.toLowerCase();
+  //Obtém o texto a ser pesquisado do input que já estava apontado
+  let text = inputSearch.value.toLowerCase();
 
-  if (inputSearch.trim() === '' || inputSearch === '') {
+  if (text.trim() === '' || text === '') {
     itemsFound = null;
     renderItens(itemsFound);
   } else {
-    findItens(inputSearch);
+    findItens(text);
   }
 }
 
