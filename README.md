@@ -2,9 +2,9 @@
   <img alt="Desafio01" src=".github/Desafio01-BT-IGTI.png" width="100%">
 </p>
 
-# Desafio01-BT-IGTI
+## 💻 Projeto [Desafio01-BT-IGTI]
 
-## Este é o desafio do módulo 1 do Bootcamp de Desenvolvedor FullStack do IGTI
+### Este é o desafio do módulo 1 do Bootcamp de Desenvolvedor FullStack do IGTI
 
 O desafio é criar uma aplicação que colete dados de uma determinada API e mostre as estatísticas a partir dos nomes pesquisados.
 
@@ -21,3 +21,15 @@ Exercitar os seguintes conceitos trabalhados no Módulo:
 - Realizar diversos cálculos com array methods como map, filter e reduce.
 
 - Realizar requisições HTTP com o comando fetch.
+
+## ✨ Tecnologias
+
+Esse projeto foi desenvolvido com as seguintes tecnologias:
+
+- HTML
+- CSS
+- JavaScript
+
+## 🔖 Layout
+
+- Para layout foi utilizado o [materializecss](https://materializecss.com/).
